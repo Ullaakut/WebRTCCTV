@@ -2,7 +2,7 @@
 node_modules/
 
 # Bower
-webapp/bower_components/
+webapp/static/bower_components/
 
 # npm
 npm-debug.log
