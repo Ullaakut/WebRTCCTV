@@ -1,0 +1,26 @@
+{
+  "name": "webrtcctv",
+  "description": "WebRTC signaling server and webapp that can stream RTSP cameras",
+  "authors": [
+    "Brendan LE GLAUNEC - brendan.le-glaunec@epitech.eu"
+  ],
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "adapter.js": "*",
+    "bootstrap": "~3.3.0",
+    "ekko-lightbox": "~3.3.0",
+    "demo-console": "master",
+    "kurento-utils": "master"
+  }
+}

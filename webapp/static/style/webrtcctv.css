@@ -1,0 +1,140 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 40px;
+    background: #2c2c2c;
+    color: #FFF;
+}
+
+video,
+#console {
+    display: block;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-group {
+    display: inline-block;
+    margin: 0 0 0 25px;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+.form-group select {
+    display: inline-block;
+    width: auto;
+}
+
+#console {
+    min-height: 120px;
+    max-height: 360px;
+    background: #3c3c3c;
+}
+
+li.log span[data-type="string"] {
+    color: #FFF;
+}
+
+li.info span[data-type="string"] {
+    color: #4286f4;
+    font-style: italic;
+}
+
+li.error span[data-type="string"] {
+    color: #F00;
+    font-weight: 900;
+}
+
+.col-md-2 {
+    width: 80px;
+    padding-top: 190px;
+}
+
+#exitFullscreen {
+    display: none;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 9999;
+}
+
+#videoOutput.fullscreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    background: #000;
+}
+
+#exitFullscreen.visible {
+    display: block;
+}
+
+.btn-group .btn {
+    margin-right: 2px !important;
+}
+
+#videoOutput:-moz-full-screen {
+    position: fixed;
+    display: inline;
+    z-index: 1;
+}
+
+#videoOutput:-ms-full-screen {
+    position: fixed;
+    display: inline;
+    z-index: 1;
+}
+
+#videoOutput:-webkit-full-screen {
+    position: fixed;
+    display: inline;
+    z-index: 1;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}

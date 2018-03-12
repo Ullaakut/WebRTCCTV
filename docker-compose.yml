@@ -1,0 +1,35 @@
+version: "2.1"
+
+services:
+
+  kurento:
+    image: ullaakut/kurento-custom-bitrate
+    environment:
+      - OUTPUT_BITRATE=2048000
+    ports:
+      - 8888:8888
+    depends_on:
+      - fake_camera
+
+  signaling:
+    build: ./
+    ports:
+      - 7000:7000
+    depends_on:
+      kurento: { condition: service_started }
+
+  webapp:
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+    ports:
+      - 4242:80
+    environment:
+      - SIGNALING_URI=ws://signaling:7000
+    depends_on:
+      - signaling
+
+  fake_camera:
+    image: ullaakut/rtspatt
+    ports:
+      - 8554:8554
