@@ -25,11 +25,15 @@ services:
     ports:
       - 4242:80
     environment:
-      - SIGNALING_URI=ws://signaling:7000
+      - SIGNALING_URI=ws://localhost:7000
     depends_on:
       - signaling
 
   fake_camera:
     image: ullaakut/rtspatt
+    # volumes:
+    #   - ./testvideo.mp4:/testvideo.mp4
+    # environment:
+    #   - INPUT=/testvideo.mp4
     ports:
       - 8554:8554
