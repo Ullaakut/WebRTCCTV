@@ -4,8 +4,9 @@
 
 WebRTCCTV is a signaling server able to stream RTSP streams from cameras using WebRTC. It uses [Kurento](http://www.kurento.org/) as a signaling server.
 
-<p align="center"><img src="https://raw.githubusercontent.com/Ullaakut/WebRTCCTV/master/images/VideoTest.gif" width="500"/></p>
-<p align="center"><img src="https://raw.githubusercontent.com/Ullaakut/WebRTCCTV/master/images/WebcamTest.gif" width="500"/></p>
+<p align="center"><img style="display:inline" src="https://raw.githubusercontent.com/Ullaakut/WebRTCCTV/master/images/VideoTest.gif" width="45%"/>
+<img style="display:inline" src="https://raw.githubusercontent.com/Ullaakut/WebRTCCTV/master/images/WebcamTest.gif" width="45%"/></p>
+
 
 ## Explanations
 
