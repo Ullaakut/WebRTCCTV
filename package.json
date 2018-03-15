@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node src/index.js",
-    "lint": "eslint ."
+    "lint": "eslint src",
+    "build": "babel src/ -d dist/"
   },
   "dependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0",
     "kurento-client": "Kurento/kurento-client-js",
     "node-fetch": "^1.7.0",
     "ws": "~0.7.2"
@@ -16,6 +15,11 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-import": "^2.2.0",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "flow-bin": "^0.49.1"
   }
 }

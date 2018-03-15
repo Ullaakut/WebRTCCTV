@@ -1,3 +1,7 @@
+//@flow
+
+import type { Server } from './server';
+
 'use strict';
 
 const ws = require('ws').Server;

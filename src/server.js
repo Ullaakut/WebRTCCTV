@@ -1,13 +1,27 @@
+// @flow
+
 'use strict';
 
-module.exports = Server => options => {
+import typeof ws from 'ws';
+import type { Client } fron './index.js'
+
+type Params = {
+  pingInterval: number,
+  port: number,
+};
+
+export type Server = {
+  onConnection: ((Client) => void) => void,
+}
+
+module.exports = (Server: ws) => (options: Params): Server => {
   const { pingInterval = 10000, port = 8443 } = options;
   let connectionHandler;
 
   // Start the ws server
   const server = new Server({ port });
 
-  server.on('connection', ws => {
+  server.on('connection', (ws: ws) => {
     if (!connectionHandler) {
       return;
     }
@@ -17,26 +31,26 @@ module.exports = Server => options => {
     connectionHandler(client);
   });
 
-  function createClient(ws) {
+  function createClient(ws: ws) {
     let messageHandler, errorHandler, closeHandler;
 
     // Starts pinging the client every `pingInterval`ms
     const stopKeepAlive = startKeepAlive(ws);
 
-    ws.on('error', error => {
+    ws.on('error', (error: Error) => {
       if (errorHandler) {
         errorHandler(error);
       }
     });
 
-    ws.on('close', (code, reason) => {
+    ws.on('close', (code: number, reason: string) => {
       if (closeHandler) {
         closeHandler(code, reason);
         stopKeepAlive();
       }
     });
 
-    ws.on('message', message => {
+    ws.on('message', (message: string) => {
       if (messageHandler) {
         messageHandler(JSON.parse(message));
       }
@@ -52,14 +66,14 @@ module.exports = Server => options => {
       onClose(handler) {
         closeHandler = handler;
       },
-      send(message) {
+      send(message: string) {
         ws.send(JSON.stringify(message));
       },
     };
   }
 
   // Starts pinging a ws connection to make sure it stays alive
-  function startKeepAlive(ws) {
+  function startKeepAlive(ws: ws) {
     let isAlive = true;
 
     ws.on('pong', () => {
